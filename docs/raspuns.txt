@@ -1,0 +1,14 @@
+Sequence diagram (UML, comportamentală cum functioneaza)
+    descrie un scenariu prin schimbul de mesaje dintre participanți, ordonat în timp
+    participanți pe orizontală, timpul pe verticală
+
+Flowchart / diagramă de flux (comportamentală, cum funcționează)
+    descrie un proces prin succesiunea pașilor și a deciziilor, ca graf orientat
+    noduri = pași, decizii, start/sfârșit; săgeți = ordinea de execuție
+
+event bus
+    canal de comunicare între componente fără ca ele să se știe una pe alta,
+    bazat pe evenimente (publish/subscribe)
+    - publisher-ul nu știe cine ascultă și nici dacă ascultă cineva
+    - evenimentul = ceva ce s-a întâmplat deja (nume la trecut: OrderPlaced)
+    - in-process (Spring ApplicationEventPublisher) vs. broker (Kafka, RabbitMQ)
