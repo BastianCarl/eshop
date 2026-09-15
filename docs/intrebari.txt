@@ -1,0 +1,8 @@
+Diagramele de arhitectura se impart in subcaterogii de C3: context, container, componenta si cod.
+
+-----------
+
+kebab case in pom(in denumirea aplicatiilor in general) in loc de camelCase si numele la diagrame
+definit modele, repository, service, controller, dto, mapper, exception, config, util, constant, enum, openApi, interactiunea cu baza de date, liquibase sau flyway, useri diferit pentru aplicatie si liqubase in postgres, class diagram
+sa trec de la properties la yaml
+sa fac push pe gitHub
