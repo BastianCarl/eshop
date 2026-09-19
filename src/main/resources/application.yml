@@ -1,3 +1,11 @@
 spring:
   application:
     name: eShopNew
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eshop
+    username: migration_user
+    password: migration_user
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
