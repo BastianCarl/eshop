@@ -16,3 +16,7 @@ event bus
     - publisher-ul nu știe cine ascultă și nici dacă ascultă cineva
     - evenimentul = ceva ce s-a întâmplat deja (nume la trecut: OrderPlaced)
     - in-process (Spring ApplicationEventPublisher) vs. broker (Kafka, RabbitMQ)
+
+Index
+    Object of db usually implemented as data structure(b-tree, hashTable)\
+    used to find the right date instead of going through each row(acts as a map)
