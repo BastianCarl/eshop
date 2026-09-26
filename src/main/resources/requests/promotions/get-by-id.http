@@ -1,0 +1,5 @@
+### Get promotion by id (run create.http first to set {{promotionId}})
+@host = http://localhost:8080
+
+GET {{host}}/api/promotions/{{promotionId}}
+Accept: application/json

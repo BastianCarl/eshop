@@ -1,0 +1,18 @@
+### Create order item (fill {{orderId}} & {{productId}} first; captures {{orderItemId}})
+@host = http://localhost:8080
+@orderId = 00000000-0000-0000-0000-000000000000
+@productId = 00000000-0000-0000-0000-000000000000
+
+POST {{host}}/api/order-items
+Content-Type: application/json
+
+{
+  "order": { "id": "{{orderId}}" },
+  "product": { "id": "{{productId}}" },
+  "quantity": 2,
+  "unitPrice": 29.99
+}
+
+> {%
+    client.global.set("orderItemId", response.body.id);
+%}

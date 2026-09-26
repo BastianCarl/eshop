@@ -1,0 +1,4 @@
+### Delete wishlist (run create.http first to set {{wishlistId}})
+@host = http://localhost:8080
+
+DELETE {{host}}/api/wishlists/{{wishlistId}}

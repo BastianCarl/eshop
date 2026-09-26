@@ -1,0 +1,17 @@
+### Create wishlist item (fill {{wishlistId}} & {{productId}} first; captures {{wishlistItemId}})
+@host = http://localhost:8080
+@wishlistId = 00000000-0000-0000-0000-000000000000
+@productId = 00000000-0000-0000-0000-000000000000
+
+POST {{host}}/api/wishlist-items
+Content-Type: application/json
+
+{
+  "wishlist": { "id": "{{wishlistId}}" },
+  "product": { "id": "{{productId}}" },
+  "addedAt": "2026-09-21T10:00:00"
+}
+
+> {%
+    client.global.set("wishlistItemId", response.body.id);
+%}

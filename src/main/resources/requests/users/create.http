@@ -1,0 +1,14 @@
+### Create user (captures {{userId}} for the other user requests)
+@host = http://localhost:8080
+
+POST {{host}}/api/users
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "name": "John Doe"
+}
+
+> {%
+    client.global.set("userId", response.body.id);
+%}

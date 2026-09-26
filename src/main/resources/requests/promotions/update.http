@@ -1,0 +1,12 @@
+### Update promotion (run create.http first to set {{promotionId}})
+@host = http://localhost:8080
+
+PUT {{host}}/api/promotions/{{promotionId}}
+Content-Type: application/json
+
+{
+  "code": "SUMMER30",
+  "discountType": "PERCENTAGE",
+  "value": 30.00,
+  "validUntil": "2027-01-31T23:59:59"
+}

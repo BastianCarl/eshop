@@ -1,0 +1,5 @@
+### Get wishlist item by id (run create.http first to set {{wishlistItemId}})
+@host = http://localhost:8080
+
+GET {{host}}/api/wishlist-items/{{wishlistItemId}}
+Accept: application/json

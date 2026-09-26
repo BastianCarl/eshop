@@ -1,0 +1,19 @@
+### Create order (fill {{userId}} & {{promotionId}} first; captures {{orderId}})
+@host = http://localhost:8080
+@userId = 00000000-0000-0000-0000-000000000000
+@promotionId = 00000000-0000-0000-0000-000000000000
+
+POST {{host}}/api/orders
+Content-Type: application/json
+
+{
+  "user": { "id": "{{userId}}" },
+  "promotion": { "id": "{{promotionId}}" },
+  "status": "PENDING",
+  "total": 149.99,
+  "createdAt": "2026-09-21T10:00:00"
+}
+
+> {%
+    client.global.set("orderId", response.body.id);
+%}

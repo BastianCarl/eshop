@@ -1,0 +1,4 @@
+### Delete user (run create.http first to set {{userId}})
+@host = http://localhost:8080
+
+DELETE {{host}}/api/users/{{userId}}

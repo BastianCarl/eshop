@@ -1,0 +1,15 @@
+### Create wishlist (fill {{userId}} first; captures {{wishlistId}})
+@host = http://localhost:8080
+@userId = 00000000-0000-0000-0000-000000000000
+
+POST {{host}}/api/wishlists
+Content-Type: application/json
+
+{
+  "user": { "id": "{{userId}}" },
+  "name": "My Wishlist"
+}
+
+> {%
+    client.global.set("wishlistId", response.body.id);
+%}

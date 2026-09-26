@@ -1,0 +1,14 @@
+### Update order item (run create.http first to set {{orderItemId}}; fill {{orderId}} & {{productId}})
+@host = http://localhost:8080
+@orderId = 00000000-0000-0000-0000-000000000000
+@productId = 00000000-0000-0000-0000-000000000000
+
+PUT {{host}}/api/order-items/{{orderItemId}}
+Content-Type: application/json
+
+{
+  "order": { "id": "{{orderId}}" },
+  "product": { "id": "{{productId}}" },
+  "quantity": 3,
+  "unitPrice": 27.99
+}

@@ -1,0 +1,15 @@
+### Create product (captures {{productId}} for the other product requests)
+@host = http://localhost:8080
+
+POST {{host}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse",
+  "price": 29.99,
+  "stock": 100
+}
+
+> {%
+    client.global.set("productId", response.body.id);
+%}

@@ -1,0 +1,11 @@
+### Update product (run create.http first to set {{productId}})
+@host = http://localhost:8080
+
+PUT {{host}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse Pro",
+  "price": 39.99,
+  "stock": 80
+}

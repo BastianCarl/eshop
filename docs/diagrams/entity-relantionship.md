@@ -1,5 +1,5 @@
 ```mermaid
-erDiagram
+Diagram
     USER ||--o{ ORDER : ""
     USER ||--o| WISHLIST : ""
     WISHLIST ||--o{ WISHLIST_ITEM : ""

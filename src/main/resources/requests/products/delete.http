@@ -1,0 +1,4 @@
+### Delete product (run create.http first to set {{productId}})
+@host = http://localhost:8080
+
+DELETE {{host}}/api/products/{{productId}}

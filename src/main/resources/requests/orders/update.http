@@ -1,0 +1,15 @@
+### Update order (run create.http first to set {{orderId}}; fill {{userId}} & {{promotionId}})
+@host = http://localhost:8080
+@userId = 00000000-0000-0000-0000-000000000000
+@promotionId = 00000000-0000-0000-0000-000000000000
+
+PUT {{host}}/api/orders/{{orderId}}
+Content-Type: application/json
+
+{
+  "user": { "id": "{{userId}}" },
+  "promotion": { "id": "{{promotionId}}" },
+  "status": "PAID",
+  "total": 149.99,
+  "createdAt": "2026-09-21T10:00:00"
+}

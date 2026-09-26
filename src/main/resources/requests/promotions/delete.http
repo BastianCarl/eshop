@@ -1,0 +1,4 @@
+### Delete promotion (run create.http first to set {{promotionId}})
+@host = http://localhost:8080
+
+DELETE {{host}}/api/promotions/{{promotionId}}

@@ -1,0 +1,4 @@
+### Delete order (run create.http first to set {{orderId}})
+@host = http://localhost:8080
+
+DELETE {{host}}/api/orders/{{orderId}}

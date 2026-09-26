@@ -1,0 +1,13 @@
+### Update wishlist item (run create.http first to set {{wishlistItemId}}; fill {{wishlistId}} & {{productId}})
+@host = http://localhost:8080
+@wishlistId = 00000000-0000-0000-0000-000000000000
+@productId = 00000000-0000-0000-0000-000000000000
+
+PUT {{host}}/api/wishlist-items/{{wishlistItemId}}
+Content-Type: application/json
+
+{
+  "wishlist": { "id": "{{wishlistId}}" },
+  "product": { "id": "{{productId}}" },
+  "addedAt": "2026-09-22T12:00:00"
+}

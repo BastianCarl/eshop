@@ -1,0 +1,10 @@
+### Update user (run create.http first to set {{userId}})
+@host = http://localhost:8080
+
+PUT {{host}}/api/users/{{userId}}
+Content-Type: application/json
+
+{
+  "email": "john.updated@example.com",
+  "name": "John Updated"
+}

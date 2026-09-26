@@ -1,0 +1,16 @@
+### Create promotion (captures {{promotionId}} for the other promotion requests)
+@host = http://localhost:8080
+
+POST {{host}}/api/promotions
+Content-Type: application/json
+
+{
+  "code": "SUMMER25",
+  "discountType": "PERCENTAGE",
+  "value": 25.00,
+  "validUntil": "2026-12-31T23:59:59"
+}
+
+> {%
+    client.global.set("promotionId", response.body.id);
+%}
