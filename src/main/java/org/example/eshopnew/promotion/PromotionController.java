@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/promotions")
+@RequestMapping("/promotions")
 public class PromotionController {
 
     private final PromotionService service;

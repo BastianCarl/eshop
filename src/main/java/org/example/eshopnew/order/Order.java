@@ -1,14 +1,6 @@
 package org.example.eshopnew.order;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.example.eshopnew.promotion.Promotion;
 import org.example.eshopnew.user.User;
 
@@ -26,11 +18,11 @@ public class Order {
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "fk_orders_user"))
+    @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_orders_user"))
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "promotion_id", foreignKey = @jakarta.persistence.ForeignKey(name = "fk_orders_promotion"))
+    @JoinColumn(name = "promotion_id", foreignKey = @ForeignKey(name = "fk_orders_promotion"))
     private Promotion promotion;
 
     @Column(name = "status", nullable = false, length = 50)

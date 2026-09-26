@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/wishlists")
+@RequestMapping("/wishlists")
 public class WishlistController {
 
     private final WishlistService service;
