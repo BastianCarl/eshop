@@ -1,5 +1,6 @@
 package org.example.eshopnew.product;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +20,12 @@ import java.util.UUID;
 public class ProductController {
 
     private final ProductService service;
+    private final ProductMapper mapper;
 
-    public ProductController(ProductService service) {
+    @Autowired
+    public ProductController(ProductService service, ProductMapper mapper) {
         this.service = service;
+        this.mapper = mapper;
     }
 
     @GetMapping
@@ -36,13 +40,13 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product create(@RequestBody Product product) {
-        return service.create(product);
+    public Product create(@RequestBody CreateProductRequest request) {
+        return service.create(mapper.toEntity(request));
     }
 
     @PutMapping("/{id}")
-    public Product update(@PathVariable UUID id, @RequestBody Product product) {
-        return service.update(id, product);
+    public Product update(@PathVariable UUID id, @RequestBody UpdateProductRequest request) {
+        return service.update(id, mapper.toEntity(request));
     }
 
     @DeleteMapping("/{id}")
