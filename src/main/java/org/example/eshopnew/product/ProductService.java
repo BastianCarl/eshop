@@ -1,10 +1,11 @@
 package org.example.eshopnew.product;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -12,14 +13,16 @@ import java.util.UUID;
 public class ProductService {
 
     private final ProductRepository repository;
+    private final ProductSpecificationMapper specificationMapper;
 
-    public ProductService(ProductRepository repository) {
+    public ProductService(ProductRepository repository, ProductSpecificationMapper specificationMapper) {
         this.repository = repository;
+        this.specificationMapper = specificationMapper;
     }
 
     @Transactional(readOnly = true)
-    public List<Product> findAll() {
-        return repository.findAll();
+    public Page<Product> findAll(ProductFilter filter, Pageable pageable) {
+        return repository.findAll(specificationMapper.toSpecification(filter), pageable);
     }
 
     @Transactional(readOnly = true)
