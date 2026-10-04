@@ -20,3 +20,10 @@ event bus
 Index
     Object of db usually implemented as data structure(b-tree, hashTable)\
     used to find the right date instead of going through each row(acts as a map)
+
+@ManyToOne(optional = false ce face?
+        nu poate sa fie null (nu poate sa exist un order fara user)
+
+N+1
+    avoid making an expensive call for each element, instead make one that brings all the required information
+    each call has an inherent cost, so N calls pay that cost N times, while one batched call pays it once
