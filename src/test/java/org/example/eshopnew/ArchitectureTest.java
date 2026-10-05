@@ -5,11 +5,16 @@ import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
+import jakarta.annotation.Resource;
+import jakarta.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.fields;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_USE_FIELD_INJECTION;
 import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
@@ -73,8 +78,30 @@ class ArchitectureTest {
 
     // --- General hygiene ------------------------------------------------------
 
+    // Library shorthand: covers @Autowired/@Value/@Inject/@Resource on fields in one rule.
     @ArchTest
     static final ArchRule no_field_injection = NO_CLASSES_SHOULD_USE_FIELD_INJECTION;
+
+    // Explicit, per-annotation equivalents of the rule above.
+    @ArchTest
+    static final ArchRule fields_are_not_autowired =
+            fields().should().notBeAnnotatedWith(Autowired.class)
+                    .as("Fields should not be @Autowired; use constructor injection");
+
+    @ArchTest
+    static final ArchRule fields_are_not_value_injected =
+            fields().should().notBeAnnotatedWith(Value.class)
+                    .as("Fields should not be injected with @Value; inject via the constructor");
+
+    @ArchTest
+    static final ArchRule fields_are_not_inject_annotated =
+            fields().should().notBeAnnotatedWith(Inject.class)
+                    .as("Fields should not use @Inject; use constructor injection");
+
+    @ArchTest
+    static final ArchRule fields_are_not_resource_annotated =
+            fields().should().notBeAnnotatedWith(Resource.class)
+                    .as("Fields should not use @Resource; use constructor injection");
 
     @ArchTest
     static final ArchRule no_java_util_logging = NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
