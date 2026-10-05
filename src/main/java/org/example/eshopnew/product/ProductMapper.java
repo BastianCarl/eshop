@@ -1,23 +1,14 @@
 package org.example.eshopnew.product;
 
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mapper;
 
-@Component
-public class ProductMapper {
+@Mapper(componentModel = "spring")
+public interface ProductMapper {
 
-    public Product toEntity(CreateProductRequest request) {
-        Product product = new Product();
-        product.setName(request.name());
-        product.setPrice(request.price());
-        product.setStock(request.stock());
-        return product;
-    }
+    @Mapping(target = "id", ignore = true)
+    Product toEntity(CreateProductRequest request);
 
-    public Product toEntity(UpdateProductRequest request) {
-        Product product = new Product();
-        product.setName(request.name());
-        product.setPrice(request.price());
-        product.setStock(request.stock());
-        return product;
-    }
+    @Mapping(target = "id", ignore = true)
+    Product toEntity(UpdateProductRequest request);
 }
