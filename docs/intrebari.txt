@@ -16,3 +16,9 @@ prepared statement
 
 mapper(de investigat daca pot folosi mapstruct) + feature + validari(controller, entity, aop(pentru logging))
 archunit
+------------------
+database performance optimization
+@NotNull
+regrupare technic
+PATCH VS PUT
+https://my-ssl.com/learn/tls-termination-ssl-offloading
